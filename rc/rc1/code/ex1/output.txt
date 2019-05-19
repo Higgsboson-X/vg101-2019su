@@ -1,0 +1,4 @@
+Waldorf is located at (2, 5) in the right direction
+Bambi is located at (2, 3) in the down right direction
+Betty is located at (1, 2) in the down direction
+Dagbert is located at (7, 8) in the left direction
