@@ -449,23 +449,3 @@ For simplicity, the word in the input file is guaranteed to appear at least once
 ***2. Minesweeper.***
 
 Write a function `myMinesweeper(r, c, n)` which takes the number of rows $r > 3$ and columns $c > 3$ as inputs, and randomly generate a $r\times c$ truth board, with $0$ indicating safe position, and $1$ indicating a mine in that position, with a total of $n$ mines. Start from an empty board containing only $0$s. Then until the user wins (with all mines identified without touching them) or loses (touched a mine), the user is prompted to input two numbers `r c` indicating a guess (space separated). The the number in the position is updated with the number of mines within a $3\times 3$ grid centered at the guessed location. If the game ends, the user should be prompted with either `Congratulations, you win!`, or `Sorry, you lose!`. For each intermediate round, the updated board should be printed in the command window.
-
-***3. Pascal's Triangle.***
-
-Write a function `myPascal(n)` that takes an integer $n$, which represents the number of levels of the Pascal triangle, and outputs a rotated Pascal Triangle in a file called `pascal.txt`. For instance, the command `myPascal(5)` outputs the following:
-
-> `pascal.txt`
->
-> ```
->            1
->          1
->        1   4
->      1   3
->   1   2   6
->      1   3
->        1   4
->          1
->            1
->    ```
-
-There is a space between each level of the triangle, and all the numbers are right-aligned.
