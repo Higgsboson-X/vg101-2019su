@@ -4,7 +4,7 @@
 
 *CHEN Xiwen*
 
-*2019/5/17*
+*2019/5/20*
 
 ### Outline
 
@@ -66,20 +66,20 @@
 
 #### Program Design
 
-> 1. Clearly state or translate the problem
-> 2. Define what is know as the *input*
-> 3. Define what is know as the *output*
-> 4. Develop an *algorithm*, i.e., a systematic way to solve the problem
-> 5. Verify the solution on simple input
-> 6. Implementing the algorithm
+> 1. Clearly state or translate the problem.
+> 2. Define what is know as the *input*.
+> 3. Define what is know as the *output*.
+> 4. Develop an *algorithm*, i.e., a systematic way to solve the problem.
+> 5. Verify the solution on simple input.
+> 6. Implementing the algorithm.
 
 #### Learning a Programming Language
 
 ***READ-THE-DOC!***
 
 * What can we learn from a documentation?
-  1. Data type (integers, double, arrays, chars, etc.) and operations
-  2. Functional APIs (input, output, options) and descriptions
+  1. Data type (integers, double, arrays, chars, etc.) and operations.
+  2. Functional APIs (input, output, options) and descriptions.
 
 * API (abstract programming interface)
 
@@ -97,10 +97,10 @@
 
   * Desktop: graphical interface
 
-    1. Current folder: *default file I/O path, available functions*
-    2. Workspace: *current variables and their values*
-    3. Command window: *View immediate results*
-    4. Editor: *edit scripts*
+    1. Current folder: *default file I/O path, available functions*.
+    2. Workspace: *current variables and their values*.
+    3. Command window: *View immediate results*.
+    4. Editor: *edit scripts*.
 
   * Terminal **(optional)**
 
@@ -116,8 +116,16 @@
 
        1. Add path: `addpath(path-to-function)`
        2. Use function as in command window in desktop mode: `function(args)`
-
-- Command window:
+       
+    5. View the current folder: `pwd`
+    
+    6. Change current folder: `cd path-to-folder` 
+    
+    7. View all files with `.m` extension: `dir path-to-folder`
+    
+    8. **NOTE: be cautious with your naming of the file.**
+  
+* Command window:
 
   - Clear command history: `clc`
   - View command history: $\uparrow$
@@ -125,43 +133,43 @@
   - Clear all variables in workspace: `clearvars`
   - Query the existence of a variable or a file: `exist varName/fileName`
 
-- Workspace:
+* Workspace:
 
-  - Access current variable value from command window: `var` 
-  - Current variables are not cleared when starting running a script: **avoid variable conflicts by clearing the workspace using `clear all;` in the first line of the script**
-  - Save variables to `fileName.mat` or load variables from `fileName.mat` to workspace: `save fileName` and `load fileName`
+  - Access current variable value from command window: `varName` 
+  - Current variables are not cleared when starting running a script: **avoid variable conflicts by clearing the workspace in the first line of the script**
+  - Save variables in current workspace to `fileName.mat` or load variables from `fileName.mat` to workspace: `save fileName` and `load fileName`
 
-- Editor:
+* Editor:
 
   - Place to define your functions and write your scripts.
-  - If the `.m` file is a function definition, the name should be consistent with the function name (e.g., `function myFunc(n)` is defined in `myFunc.m`), one main function definition per file, but can contain sub-functions that are only accessible inside the file
+  - If the `.m` file is a function definition, the name should be consistent with the function name (e.g., `function myFunc(n)` is defined in `myFunc.m`), one main function definition per file, but  a file can contain sub-functions that are only accessible inside the file.
   - Function vs. script: 
-    - Function: with API (inputs, outputs), can be called within another script or function
-    - Script: a series of tasks, with possible function calls
+    - Function: with API (inputs, outputs), can be called within another script or function.
+    - Script: a series of tasks, with possible function calls.
 
-  * Printed results from running the script will be shown in the command window: variable assignment that ends with `;` will not print the value in the command window **(Please end with a `;` for every unnecessary output)**
+  * Printed results from running the script will be shown in the command window: variable assignment that ends with `;` will not print the value in the command window. **(Please end with a `;` for every unnecessary output.)**
 
 * Help and documentation:
-  * Directly search using keywords
+  * Directly search using keywords.
   * In the command window: `help funcName` or `doc keyWord`
 
-* Debugging: *add breakpoints (basics)* 
-  1. Add a breakpoint by clicking the dash beside a line number
-  2. Run the script
-  3. The process will stop at the breakpoint, you can view the intermediate values for variables in the workspace
-  4. Continue running the script
+* Debugging: *add breakpoints (basics)* or `disp`
+  1. Add a breakpoint by clicking the dash beside a line number.
+  2. Run the script.
+  3. The process will stop at the breakpoint, you can view the intermediate values for variables in the workspace.
+  4. Continue running the script.
 
 #### Scripting in MATLAB
 
 * Coding style
 
-  * `Tab` or `Space` to improve readability
+  * Use `Tab` or `Space` to improve readability.
 
-  * End with `;` to suppress unnecessary outputs and begin the following lines with a new line
+  * End with `;` to suppress unnecessary outputs and begin the following lines with a new line.
 
-  * Space after operators, e.g., `a = 2;`  instead of `a=2`
+  * Space after operators, e.g., `a = 2;`  instead of `a=2`.
 
-  * Space after a `,` or `;`, e.g., `A = [1, 2; 3, 4]` instead of `A = [1,2;3,4]`
+  * Space after a `,` or `;`, e.g., `A = [1, 2; 3, 4]` instead of `A = [1,2;3,4]`.
 
   * Use `...` for continuation in the next line, e.g., 
 
@@ -177,12 +185,12 @@
     myInt   = 7;
     ```
 
-  * Use `%` for comment;
+  * Use `%` for comment.
 
-  * Variable/function names: *begin with a character, case sensitive*
+  * Variable/function names: *begin with a character, case sensitive*.
 
-    1. Use meaningful names: `publicKey` or `public_key`, `getVerifyData()` or `get_verify_data()` for functions
-    2. Avoid built-in names (variables that already have meanings, e.g., `ans`) in some situations
+    1. Use meaningful names: `publicKey` or `public_key`, `getVerifyData()` or `get_verify_data()` for functions.
+    2. Avoid built-in names (variables that already have meanings, e.g., `ans`) in some situations.
 
 * Variable types
 
@@ -197,6 +205,7 @@
      1. `strcmp(s1, s2)`: compare `s1` and `s2`
      2. `strrep(str, old, new)`: replace `old` substring with `new`
      3. `strfind(str, subStr)`: return the index of the `subStr` in `str`
+     4. `strcat(s1, ..., sN)`: concatenate strings
 
   4. Logical: **in case of integers, only `0` evaluates to `False`, e.g.**
 
@@ -235,9 +244,9 @@
 
           (**Q**: what does `A(n + 3)` return when `A` is an $n\times n$ matrix?)
 
-       2. `A(r, :)` to access a row, `A(:, c)` to access a column
+       2. `A(r, :)`, access a row; `A(:, c)`, access a column.
 
-       3. `A(r1:r2, :)` to access `r1` to `r2` inclusive, `A(:, c1:c2)` to access `c1` to `c2` inclusive 
+       3. `A(r1:r2, :)`, access `r1` to `r2` inclusive; `A(:, c1:c2)`, access `c1` to `c2` inclusive.
 
           (**Q**: How about `A(r1:r2, c1:c2)`?)
 
@@ -251,11 +260,11 @@
 
        5. Exchange rows/columns: `A([r1, r2], :) = A([r2, r1], :)`/`A(:, [c1, c2]) = A(:, [c2, c1])`
 
-       6. `A(:)` to access all elements in matrix `A` as an array (column-first)
+       6. `A(:)`, access all elements in matrix `A` as an array (column-first).
 
      * Operations:
 
-        1. Element-wise addition: `A + B`(`A` and `B` should have a consistent dimension)
+        1. Element-wise addition: `A + B` (`A` and `B` should have a consistent dimension.)
 
         2. Element-wise multiplication: `A .* B`
 
@@ -263,7 +272,7 @@
 
         4. Element-wise division: `A ./ B`(`A` and `B` should have a consistent dimension)
 
-        5. Concatenation: `[A, B]`(`A` and `B` should have a consistent row dimension), `[A; B]`(`A` and `B` should have a consistent column dimension)
+        5. Concatenation: `[A, B]`(`A` and `B` should have a consistent row dimension), `[A; B]`(`A` and `B` should have a consistent column dimension.)
 
            (**Q**: What does `A = [1:4]; A = [0, A];` do?)
 
@@ -372,47 +381,46 @@
 
   ```matlab
   % myFunc.m file;
-  function [out1, out2, ...] = myFunc(in1, in2, ...)
+  function [out1, out2, '...'] = myFunc(in1, in2, '...')
   
   	% operations defined here;
-  	...
+  	% ...
   	out1 = subFunc(in1); % all the output values should be defined;
-  	...
+  	% ...
   	out2 = subFunc(in2); % all the output values should be defined;
-  	...
+  	% ...
   
   function out = subFunc(in)
-  	out = ...;
+  	out = %...;
   ```
 
 * Function handles:
 
   1. Usage:
 
-     > 1. pass a function to another function
-     > 2. specify call back functions
-     > 3. construct handles to functions defined inline instead of stored in a program file
-     > 4. call local functions from outside the main function
+     > 1. pass a function to another function.
+     > 2. specify call back functions.
+     > 3. construct handles to functions defined inline instead of stored in a program file.
+     > 4. call local functions from outside the main function.
 
   2. Defining a function handle:
 
      1. `f = @(x) x.^2 + 1;`
 
-     2. Via an existing function: `f = @computeSquare`
+     2. Via an existing function: `f = @computeSquare`, where
 
         ```matlab
         function y = computeSquare(x)
         	y = x.^2;
-        end
         ```
-
-  3. Call function: `f(arg)`
+     
+3. Call function: `f(args)`
 
 ### Practices
 
 ***1. Where is Waldorf?***
 
-Write a script that reads from a file `input.txt`. The first line of the file indicates the number of rows $r$ and columns $c$ in the following matrix of letters, separated by a space. The following $r$ lines of the file content is a $r\times c$ matrix of letters. Then the next line includes the number of words $w$ in the rest of the file, followed by $w$ words that need to be found. For instance, a sample input file might look like the following:
+Write a function that reads from a file `input.txt`. The first line of the file indicates the number of rows $r$ and columns $c$ in the following matrix of letters, separated by a space. The following $r$ lines of the file content is a $r\times c$ matrix of letters. Then the next line includes the number of words $w$ in the rest of the file, followed by $w$ words that need to be found. For instance, a sample input file might look like the following:
 
 > `input.txt`
 >
@@ -433,7 +441,7 @@ Write a script that reads from a file `input.txt`. The first line of the file in
 > Dagbert
 > ```
 
-Then the script finds the position of the first letter of a word in the form of `(r, c)` that is found in the matrix. The word can be in horizontal, vertical and diagonal in both directions (left and right), case insensitive. Output the results in the file `output.txt` in the format of `[word] is located at (r, c) in the [direction] direction ` (direction: `right/left/up/down/up right/up left/down right/down left`), line separated. For instance, the output of the input file above should be the following:
+Then the function finds the position of the first letter of a word in the form of `(r, c)` that is found in the matrix. The word can be in horizontal, vertical and diagonal in both directions (left and right), case insensitive. Output the results in the file `output.txt` in the format of `[word] is located at (r, c) in the [direction] direction ` (direction: `right/left/up/down/up right/up left/down right/down left`), line separated. For instance, the output of the input file above should be the following:
 
 > `output.txt`
 >
@@ -448,4 +456,18 @@ For simplicity, the word in the input file is guaranteed to appear at least once
 
 ***2. Minesweeper.***
 
-Write a function `myMinesweeper(r, c, n)` which takes the number of rows $r > 3$ and columns $c > 3$ as inputs, and randomly generate a $r\times c$ truth board, with $0$ indicating safe position, and $1$ indicating a mine in that position, with a total of $n$ mines. Start from an empty board containing only $0$s. Then until the user wins (with all mines identified without touching them) or loses (touched a mine), the user is prompted to input two numbers `r c` indicating a guess (space separated). The the number in the position is updated with the number of mines within a $3\times 3$ grid centered at the guessed location. If the game ends, the user should be prompted with either `Congratulations, you win!`, or `Sorry, you lose!`. For each intermediate round, the updated board should be printed in the command window.
+Write a function `myMinesweeper(r, c)` which takes the number of rows $r > 3$ and columns $c > 3$ as inputs, and randomly generate a $r\times c$ truth board, with $0$ indicating safe position, and $1$ indicating a mine in that position, with a total of $n$ mines. To decide whether a position has a mine, generate a random number from standard normal distribution and set a mine if the number is greater than $0$. Start from an empty board containing only $0$s. Then until the user wins (with all mines identified without touching them) or loses (touched a mine), the user is prompted to input two numbers `[r, c]` indicating a guess (comma separated, bracket enclosed). The the number in the position is updated with the number of mines within a $3\times 3$ grid centered at the guessed location. If the game ends, the user should be prompted with either `Congratulations, you win!`, or `Sorry, you lose!`. For each intermediate round, the updated board should be printed in the command window.
+
+### JOJ
+
+#### Submission Guidelines
+
+1. Name the script as required, e.g., `ex1.m`.
+2. Zip all the `.m` and `README` files into a `.tar` file, without any folder structures.
+3. For Windows, 7-Zip is recommended. For Linux or Mac, you can use `tar -cvf output.tar file1 file2 file3 ...`.
+
+#### Common Errors
+
+1. Avoid unnecessary outputs. 
+2. File names.
+3. Make sure your files are zipped properly. You can unzip the files and run test the scripts.
