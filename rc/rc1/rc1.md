@@ -106,7 +106,7 @@
 
     1. Start MATLAB from terminal:  `$./matlab -nodesktop`
 
-       ![](F:\Work_Site\2018SUMMER\Vg101\rc\rc1\1.png)
+       ![](.\images\1.png)
 
     2. Exit MATLAB from terminal: `>> exit`
 
@@ -198,7 +198,7 @@
 
   2. Characters: `char`(use ASCII code: `char(65) = 'A'`, `char('A' + 1) = 'B')`, 
 
-     ![](F:\Work_Site\2018SUMMER\Vg101\rc\rc1\2.png)
+     ![](.\images\2.png)
 
   3. Strings: `string`
 
@@ -462,12 +462,24 @@ Write a function `myMinesweeper(r, c)` which takes the number of rows $r > 3$ an
 
 #### Submission Guidelines
 
-1. Name the script as required, e.g., `ex1.m`.
-2. Zip all the `.m` and `README` files into a `.tar` file, without any folder structures.
-3. For Windows, 7-Zip is recommended. For Linux or Mac, you can use `tar -cvf output.tar file1 file2 file3 ...`.
+Refer to Announcements on Canvas.
 
 #### Common Errors
 
-1. Avoid unnecessary outputs. 
-2. File names.
-3. Make sure your files are zipped properly. You can unzip the files and run test the scripts.
+1. File naming.
+
+   > Compile Error
+   >
+   > cp: cannot stat '/in/ex2.m': No such file or directory
+
+2. No error reporting when the `.tar` file contains unnecessary files. But it is not allowed in homework submissions.
+
+3. The answer is not correct. 
+
+   > Wrong Answer
+   * Check your output, especially the format (`\n`, `space`, etc.) or unnecessary outputs.
+   * If you use a wrong command, or a command that will lead to MATLAB error message, the error message will also be printed to `std`, which is considered as an output in JOJ. (e.g., initializing with $A = zeros(100000000)$.)
+
+4. The script might contain infinite loop.
+
+   > Time Exceeded
