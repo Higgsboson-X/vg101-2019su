@@ -3,3 +3,13 @@ lessFunc = @myLess;
 sorted = mySort(a, lessFunc);
 
 disp(sorted);
+
+hd = mainFuncTools;
+
+s = hd.mySum(1, 2);
+m = hd.myMul(1, 2);
+d = hd.myDiv(1, 2);
+
+disp(s);
+disp(m);
+disp(d);
