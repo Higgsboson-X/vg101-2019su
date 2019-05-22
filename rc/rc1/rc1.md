@@ -81,7 +81,7 @@
   1. Data type (integers, double, arrays, chars, etc.) and operations.
   2. Functional APIs (input, output, options) and descriptions.
 
-* API (abstract programming interface)
+* API (application programming interface)
 
   ```
   output = funcName(arg1, arg2, ..., options)
@@ -102,21 +102,36 @@
     3. Command window: *View immediate results*.
     4. Editor: *edit scripts*.
 
-  * Terminal **(optional)**
+  * Terminal
 
-    1. Start MATLAB from terminal:  `$./matlab -nodesktop`
+    1. Start MATLAB from terminal:  `$./matlab -nodesktop -nosplash`
 
        ![](.\images\1.png)
 
+       Other options:
+
+       ```bash
+   matlab [-h|-help] | [-n | -e]
+              [-arch | v=variant | v=arch/variant]
+          [-c licensefile] [-display Xdisplay | -nodisplay]
+              [-nosplash] [-mwvisual visualid] 
+              [-debug] [-softwareopengl]
+              [-desktop | -nodesktop | -nojvm]
+              [-r MATLAB_command] [-logfile log]
+              [-Ddebugger [options]]
+       ```
+    
+       
+    
     2. Exit MATLAB from terminal: `>> exit`
-
+    
     3. Run MATLAB scripts in terminal mode: `run('path-to-script/file.m')`, or with error handling: `try, run('path-to-script/file.m'), catch e, fprintf('%s\n', e.message), end`
-
+    
     4. To use a MATLAB function that we write: 
-
+    
        1. Add path: `addpath(path-to-function)`
        2. Use function as in command window in desktop mode: `function(args)`
-       
+    
     5. View the current folder: `pwd`
     
     6. Change current folder: `cd path-to-folder` 
@@ -414,7 +429,40 @@
         	y = x.^2;
         ```
      
-3. Call function: `f(args)`
+  
+  3. Call function: `f(args)`
+
+### General Coding Suggestions
+
+1. Write more functions to avoid copying code.
+2. Think more before you start.
+3. Never be lazy with looking back to requirements.
+4. Improve algorithms.
+
+**Q: Implement the modified Newton's method in MATLAB based on the following algorithm, and use the algorithm to find a root of the following function with accuracy 0.000001.**
+$$
+f(x) = x^5 - 11x^4 + 46x^3 - 90x^2 + 81x - 27.
+$$
+
+```
+Input: a function f, accuracy e
+Output: a root x such that f(x) = 0
+------------------------------------------------------------------
+calculate the derivative of f as df;
+choose an initial value x0;
+while |f(x)| > e do
+	update x as x(k + 1) = x(k) - f(x(k)) / df(x(k));
+end
+return last updated x;
+```
+
+Things to consider when implementing the algorithm:
+
+* How to find the derivative of $f$ in MATLAB?
+* How to pass function $f$ as an argument?
+* How to choose the initial value?
+* What might go wrong with division? How to handle this error in MATLAB? (Note that Newton's method does not guarantee a solution if the initial value is not chosen properly.)
+* How to update $x$? Store all intermediate $x$, or just successive two of them?
 
 ### Practices
 
