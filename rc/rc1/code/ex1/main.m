@@ -1,3 +1,5 @@
+clearvars;
+
 fileIn = 'input.txt';
 fileOut = 'output.txt';
 

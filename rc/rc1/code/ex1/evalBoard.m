@@ -11,11 +11,8 @@ for dir = dirs
 	curR = r;
 	curC = c;
 	for ind = 1:length(2)
-		if curR > rows || curR < 1 || curC > cols || curC < 1
-			match = 0;
-			break;
-		end
-		if lower(char(board(curR, curC))) ~= lower(word(ind))
+		if curR > rows || curR < 1 || curC > cols || curC < 1 ...
+				|| lower(char(board(curR, curC))) ~= lower(word(ind))
 			match = 0;
 			break;
 		end
