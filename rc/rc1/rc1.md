@@ -215,7 +215,7 @@
 
      ![](.\images\2.png)
 
-  3. Strings: `string`
+  3. Strings: `string` `<demoStr.m>`
 
      1. `strcmp(s1, s2)`: compare `s1` and `s2`
      2. `strrep(str, old, new)`: replace `old` substring with `new`
@@ -360,19 +360,19 @@
      end
      ```
 
-  5. `break` and `continue`
+  5. `break` and `continue` 
 
      `break`: jump out of the current loop
 
      `continue`: jump to the next iteration in the current loop
 
-     **Q**: What is the value of `A` in the following two cases?
+     **Q**: What is the value of `A` in the following two cases? `<demoBreak.m, demoCont.m>`
 
      ```matlab
      A = zeros(10);
      for i = 1:10
      	for j = 1:10
-     		if i == 3 && j == 4
+     		if i == 2 && j == 4
      			break;
      		end
      		A(i, j) = 1;
@@ -392,6 +392,18 @@
      end
      ```
 
+* Logical mask: accessing elements using logical array.
+
+  e.g., define step functions: `<demoLogicalMask.m>`
+  
+  ```matlab
+  f = @(x) (x < 0) .* x + (x >= 0) .* (x.^2 + 4);
+  a = linspace(-1, 1, 50);
+  plot(a, f(a));
+  ```
+  
+  e.g., homework 1 ex7.1 (not optimal)
+  
 * Function definitions: *inputs, outputs, operations*
 
   ```matlab
@@ -411,7 +423,7 @@
 
 * Function handles:
 
-  1. Usage:
+  1. Usage: `<demoFuncHandle.m, myLess.m, mySort.m, mainFuncTools>`
 
      > 1. pass a function to another function.
      > 2. specify call back functions.
@@ -429,7 +441,6 @@
         	y = x.^2;
         ```
      
-  
   3. Call function: `f(args)`
 
 ### General Coding Suggestions
@@ -456,7 +467,7 @@ end
 return last updated x;
 ```
 
-Things to consider when implementing the algorithm:
+Things to consider when implementing the algorithm: `<demoNewton.m, newtonsMethod.m>`
 
 * How to find the derivative of $f$ in MATLAB?
 * How to pass function $f$ as an argument?
@@ -526,7 +537,7 @@ Refer to Announcements on Canvas.
 
    > Wrong Answer
    * Check your output, especially the format (`\n`, `space`, etc.) or unnecessary outputs.
-   * If you use a wrong command, or a command that will lead to MATLAB error message, the error message will also be printed to `std`, which is considered as an output in JOJ. (e.g., initializing with $A = zeros(100000000)$.)
+   * If you use a wrong command, or a command that will lead to MATLAB error message, the error message will also be printed to `std`, which is considered as an output in JOJ. (e.g., initializing with `A = zeros(100000000)​`.)
 
 4. The script might contain infinite loop.
 
