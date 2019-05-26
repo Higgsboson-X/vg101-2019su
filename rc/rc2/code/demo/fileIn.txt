@@ -1,0 +1,4 @@
+2 3
+read a line
+characters
+words separated by a space

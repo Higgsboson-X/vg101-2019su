@@ -1,0 +1,7 @@
+Step 1: move disk 1 from rod A to rod C.
+Step 2: move disk 2 from rod A to rod B.
+Step 3: move disk 1 from rod C to rod B.
+Step 4: move disk 3 from rod A to rod C.
+Step 5: move disk 1 from rod B to rod A.
+Step 6: move disk 2 from rod B to rod C.
+Step 7: move disk 1 from rod A to rod C.
