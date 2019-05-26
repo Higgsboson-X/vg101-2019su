@@ -12,3 +12,5 @@ function sorted = mySort(arr, compareFunc)
 	end
 
 	sorted = arr;
+	
+end

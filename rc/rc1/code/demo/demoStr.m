@@ -1,3 +1,5 @@
+clearvars;
+
 str = 'this is a string';
 old = 'this';
 new = 'that';

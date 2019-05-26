@@ -10,9 +10,16 @@ function root = newtonsMethod(f, e)
 	g(x) = f(x);
 	df = diff(g, x);
 
-	while ~isnan(xn) && abs(f(xc)) > e
+	while xn ~= Inf && abs(f(xc)) > e
 		xc = xn;
 		xn = double(xc - f(xc) / df(xc));
 	end
 
-	root = xc;
+	disp([xn, xc]);
+	if xn == Inf
+		root = xc;
+	else
+		root = xn;
+	end
+	
+end
