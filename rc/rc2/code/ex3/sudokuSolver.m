@@ -34,6 +34,7 @@ function solved = sudokuSolver(board)
 	end
 	
 	if filled
+		solved = 1;
 		disp(board);
 	end
 	
