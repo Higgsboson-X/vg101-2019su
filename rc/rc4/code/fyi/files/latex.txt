@@ -1,0 +1,30 @@
+The average value of measurement results is given by
+\begin{align*}
+\overline{{\lambda}} & = \frac{1}{n}\sum_{i=1}^{n}{\lambda}_i\\ 
+               & = \frac{1}{6}\sum_{i=1}^{6}{\lambda}_i\\ 
+               & \approx 0.6858\ [\mathrm{{cm}}]. 
+\end{align*}
+Then we obtain
+\begin{align*}
+s_{\lambda} & = \sqrt{\dfrac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{X})^2}\\ 
+       & = \sqrt{\dfrac{1}{5}\sum_{i=1}^{6}({\lambda}_i-0.6858)^2}\\ 
+       & \approx 0.0024\ [\mathrm{cm}]. 
+\end{align*}
+The type-A uncertainty for $n = 6$ is given by
+\begin{align*}
+\Delta_A & = s_{\lambda} \times \frac{t_{0.95}}{\sqrt{n}}\\ 
+          & = 0.0024 \times 1.05\\ 
+          & \approx 0.0025\ [\mathrm{cm}].
+ \end{align*}
+According to the resolution of the measurement device, we have $\Delta_B = 0.002 [cm]$. Therefore, the total uncertainty is calculated as
+\begin{align*}
+u & = \sqrt{\Delta_A^2 + \Delta_B^2}\\ 
+  & = \sqrt{0.0025^2 + 0.002^2} [\mathrm{cm}]\\ 
+  & \approx 0.0032\ [\mathrm{cm}], 
+\end{align*}
+and the relative uncertainty is calculated as
+\begin{align*}
+u_r = \frac{u}{\overline{\lambda}} \times 100\% \approx 0.5\%. 
+\end{align*}
+
+The final result is $$\lambda = 0.6858 \pm 0.0032\ [\mathrm{cm}], \qquad u_r = 0.5\%.$$
