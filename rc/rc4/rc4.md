@@ -16,7 +16,7 @@ CHEN Xiwen
 
   ```bash
   gcc filename.c -o executable
-  gcc -O2 -Wall -Wextra -Werror -pedantic -Wno-unused-result -std=c11 -o ./out/helloWord ./in/helloWorld.c -lm
+  gcc -O2 -Wall -Wextra -Werror -Wno-unused-result -std=c11 -o ./out/helloWord ./in/helloWorld.c -lm
   ```
 
 * Differences with MATLAB:
@@ -172,7 +172,7 @@ int main() {
 
 * Type Conversion
 
-  1. Automatic conversion
+  1. Automatic conversion [`demoTypeConv.c`]
 
      ```c
      int a = 1 + 1.5;
@@ -191,7 +191,7 @@ int main() {
      int b = int(a);
      ```
 
-* Constant variables: preventing modifications, initialisation required.
+* Constant variables: preventing modifications, initialisation required. [`demoConst.c`]
 
   ```c
   const int a = 1;
@@ -218,7 +218,7 @@ int main() {
      typeName b;
      ```
 
-  3. Initialising  a structure:
+  3. Initialising  a structure: [`demoStruct.c`]
 
      ```c
      a = {"albert", 32};
@@ -232,7 +232,7 @@ int main() {
 
 * Increment and decrement `i++` vs. `++i`
 
-  ***Q: What are the outputs of the following code?***
+  ***Q: What are the outputs of the following code?*** [`demoIncre.c`]
 
   ```c
   int i = 0;
@@ -283,28 +283,42 @@ int main() {
   |  1   |  1   |    1    |    1    |   0   |
 
   ```c
-  // x = 101011 in binary;
+  // x = 0...0101011 in binary;
   int x = 43;
   printf("%d %d %d\n", ~x, x << 2, x >> 2);
   ```
 
-  One's complement of $x$: 010100, understood as a signed integer in two's complement. To get the signed results, we have to
+  One's complement of $x$: 1...1010100, understood as a signed integer in two's complement. To get the signed results, we have to
 
   1. Decide sign: `-`
-  2. Invert: `101011`
-  3. Add one: `101100` ( = 44)
+  2. Invert: `0...0101011`
+  3. Add one: `0...0101100` ( = 44)
   4. Final result = sign + added: `-44`
 
-  ***Q: What if x is an unsigned int?***
+  ***Q: What if x is an unsigned int?*** [`demoBinary.c`]
 
   ```c
   unsigned int x = 43;
   x = ~x;
   ```
+  
+  Here are some points to clarify:
+  
+  1. `int` type is signed and is usually 4-byte long, $-2^{31}\sim 2^{31}-1$.
+  2. `unsigned int` is not signed and is usually 4-byte long, $0\sim 2^{32}-1$.
+  3. In 2's complement, the most significant digit is used to represent sign if the type is signed, e.g., `int`. For instance, 5 is represented as `0...00101`(32 bits) and -5 is represented as `1...11011`. To get the number -5, we do the following:
+     1. Decide sign: `-` (most significant bit is 1)
+     2. One's complement: `0...00100`
+     3. Add 1: `0...00101 = 5`
+     4. Combine sign and magnitude: `-5`
+  
+  4. For unsigned integers, if we subtract a number by a larger number, or the result of addition exceeds `UINT_MAX`, overflow occurs and the result "wraps around". For instance, `(unsigned) 0 - (unsigned) 1 = -1 mod UINT_MAX + 1 = UINT_MAX`.
+  5. Depending on Implementation, the shifting operations `<<` and `>>` append 1s or 0s to the shifted bits. For signed negative integers, `>>` can append 1s to the most significant digit so that the resulting number is still negative. For instance, `1...11011 >> 2 = 1...11110`.
+  6. In formatted input, the value shown on the screen might be different from what the value really is. As is in the demo example, unsigned integers can still be printed as negative signed integers while they are actually positive (and large). So be careful with the size of your value.
 
 ### Standard Input & Output
 
-* `printf`: similar to `fprintf` in MATLAB, `printf(formatSpec, vars);`
+* `printf`: similar to `fprintf` in MATLAB, `printf(formatSpec, vars);` [`demoPrint.c`]
 
   | Specifier |                Explanation                |
   | :-------: | :---------------------------------------: |
@@ -327,7 +341,7 @@ int main() {
   printf("%d %f\n", 7 / 3, (double)(7 / 3));
   ```
 
-* `scanf`: similar to `fscanf` in MATLAB, scans input from the stander input stream, `scanf(formatSpec, &vars);`
+* `scanf`: similar to `fscanf` in MATLAB, scans input from the stander input stream, `scanf(formatSpec, &vars);` [`demoStdin.c`]
 
   ```c
   int a, b, c;
@@ -337,7 +351,7 @@ int main() {
 
 ### Control Statements
 
-* IF-ELSE
+* IF-ELSE [`demoIfElse.c`]
 
   ```c
   if (condition_1) {
@@ -405,7 +419,7 @@ int main() {
 
   **Note**: `break` is necessary
 
-* WHILE
+* WHILE [`demoWhile.c`]
 
   1. `while`
 
@@ -459,6 +473,5 @@ int main() {
 
 #### FYI
 
-1. Getting annoyed by uncertainty analysis in VP141? Write a C program to help you generate the Latex code given necessary data. (The sample code will include only the uncertainty analysis for direct measurements. Please feel free to explore programs to generate uncertainty analysis for indirect measurements. For partial derivative, you might consider evoking MATLAB from C using "engine.h". Try to search this in MATLAB documentation if you are interested, although my computer was broken when I was testing this feature, and that is why this part of the code will not be included. [smile])
-
+1. Getting annoyed by uncertainty analysis in VP141? Write a C program to help you generate the Latex code given necessary data. (The sample code will include only the uncertainty analysis for direct measurements. Please feel free to explore programs to generate uncertainty analysis for indirect measurements. For partial derivative, you might consider evoking MATLAB from C using "engine.h". Try to search this in MATLAB documentation if you are interested, although my computer was broken when I was testing this feature, and that is why this part of the code will not be included. [smile]) **PLEASE DO modify the sample code!!!!!!**
 2. ASCII art: Given a set of poker cards without the jokers, draw the first card from the deck and display it using ASCII art on the command window. Shuffle the remaining cards after each drawing. If all the cards have been drawn, prompt the user and begin with a new deck. Repeat this until user enters `q`.

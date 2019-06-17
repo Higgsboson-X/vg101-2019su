@@ -1,8 +1,18 @@
 #include <stdio.h>
 
-typedef struct _Person {
+typedef struct Person {
 
 	char* name;
 	int age;
 
-} Person;
+} person_t;
+
+int main() {
+
+	person_t p;
+
+	printf("%s %d\n", p.name, p.age);
+
+	return 0;
+
+}

@@ -56,12 +56,12 @@ void print_shape(int suit) {
 	else {
 
 		// heart;
-		printf("|     __  __       |\n");
-		printf("|    /  \\/  \\      |\n");
-		printf("|   /        \\     |\n");
-		printf("|   \\        /     |\n");
-		printf("|    \\      /      |\n");
-		printf("|     \\____/       |\n");
+		printf("|      __  __      |\n");
+		printf("|     /  \\/  \\     |\n");
+		printf("|     \\      /     |\n");
+		printf("|      \\    /      |\n");
+		printf("|       \\  /       |\n");
+		printf("|        \\/        |\n");
 
 	}
 
