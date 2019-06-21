@@ -12,7 +12,6 @@ typedef struct Card {
 	int rank;
 	int suit;
 
-
 } card_t;
 
 
