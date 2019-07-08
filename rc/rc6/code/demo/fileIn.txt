@@ -1,0 +1,5 @@
+2 3
+first string
+second string
+last string
+characters

@@ -1,0 +1,4 @@
+first string
+second string
+last string
+characters
