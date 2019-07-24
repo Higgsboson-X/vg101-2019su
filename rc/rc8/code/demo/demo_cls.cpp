@@ -17,7 +17,7 @@ class A {
 
 };
 
-// .c file;
+// .cpp file;
 A::A() {
 
 	cout << "constructor A1\n";

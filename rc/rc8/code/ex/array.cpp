@@ -50,6 +50,10 @@ void Array::enlarge() {
 
 void Array::shrink() {
 
+	if (_size <= 10) {
+		// initial size;
+		return;
+	}
 	_size /= 2;
 	int* new_arr = new int[_size];
 	memcpy(new_arr, _arr, _card * sizeof(int));

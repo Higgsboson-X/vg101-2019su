@@ -19,7 +19,7 @@ class A {
 			cout << "destructor A\n";
 		}
 		// `virtual` key word;
-		void show() {
+		virtual void show() {
 			cout << "a = " << _a << endl;
 		}
 
